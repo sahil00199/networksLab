@@ -1,0 +1,84 @@
+============================================EXERCISE 2======================================================
+
+
+Question 1:
+My machine's host name is "SahilLaptop" and the IP address "10.196.21.241".
+To find the host name we saw the contents of /etc/hostname and to find the IP address, we used the ifconfig command.
+
+Question 2:
+The next hop's IP address is "10.196.0.2" and we found this using the "gateway" entry of the first row using the "route -n" command.
+The MAC address is "00:04:96:83:a0:8e" and we found this using the "arp" command and used the entry in the "HWaddress" column corresponding to the "10.196.0.2" row.
+
+Question 3:
+The local DNS server's hostname is "nameserver" and the IP address is "127.0.1.1"
+We found this in the /etc/resolv.conf
+
+Question 4:
+They are the Assigned Internet Protocol Numbers, and are found in the "Protocol" field of the IPv4 header. This is the number that is used to determine (in the Network Layer) which protocol of the Transport layer is to be called when the message moves up the layers. This is used in multiplexing/demultiplexing.
+
+Question 5:
+SSH: 22 (for both tcp and udp)
+FTP: 21 (for tcp)
+NFS: 2049 (for tcp and udp)
+SMTP (email): 25 (for tcp)
+
+We got this information from the /etc/services file 
+
+
+
+
+
+
+============================================ EXERCISE 3 ======================================================
+
+
+
+Question 1:
+
+
+Question 2:
+a) The next hop node's MAC address (as found from the "Destination" field of the "Ethernet" header) is "00:04:96:83:a0:8e".
+   The IP address for the next hop node is "10.196.0.2" (which is the same as the IP address of the next hop node found in the previous question)
+
+b) The final destination's IP address is "10.102.1.111". The MAC address, however, cannot be determined at the soure.
+
+c) The layers and the fields used along with their values are listed below:
+	LAYER 				FIELD NAME 				VALUE 						PROCESS (PROTOCOL PASSED TO)
+	
+1.  link (Ethernet)    Type (Frame Type)      2048 (0x0800)					   	IPv4
+2.  IP 				   Protocol  			  6								   	TCP
+3.  TCP 			   Port  				  80								HTTP	
+
+
+
+============================================ EXERCISE 3 ======================================================
+
+
+Question 1:
+
+
+Question 2:
+a) The lowest layer that handles this packet is the link(ethernet) layer and this passes it to the Address Resolution Protocol (ARP). This is determined by the value of the Type field (0x0806). It is then passed to Internet Protocol version 4 (IPv4) using the protocol field which has value (0x0800).
+
+b) The decimal value of the Type field of the Ethernet header is 2054 (0x0806).
+
+
+Question 3:
+a) The lowest layer that handles it is the link (ethernet) layer which passes it to the Internet Protocol version 4 (IPv4) using the Type field of the header which has value 0x0800 or 2048. The IPv4 layer then passes it to the Internet Control Message Protocol (ICMP) using the Protocol field which has value 1.
+
+Ethernet -> IPv4 -> ICMP
+
+b) The packet is passed to the Internet Protocol version 4 (IPv4) using the Type field which has a decimal value of 2048.
+
+c) The Protocol field is used to pass to the ICMP and it has value 1.
+
+
+Question 4:
+a) The source IP address is: 10.129.3.5
+   The destination IP address is: 10.196.21.241
+
+b) The source port is 22
+   The destination port is 36212
+
+c) The SSH server has IP addres: 10.129.3.5
+   We deduced this using the fact that the SSH server listens on port 22 and the source port is 22 and hence the source address is the IP of the SSH server.
