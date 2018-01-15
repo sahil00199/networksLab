@@ -34,7 +34,10 @@ We got this information from the /etc/services file
 
 
 Question 1:
-
+-open WireShark using sudo wireshark (and select the Wireless option)
+-open a terminal and run the following command: wget http://www.iitb.ac.in
+-filter using the command: ip.addr == 10.102.1.111
+-stop wireframe and use File->Export selected packets
 
 Question 2:
 a) The next hop node's MAC address (as found from the "Destination" field of the "Ethernet" header) is "00:04:96:83:a0:8e".
@@ -55,7 +58,12 @@ c) The layers and the fields used along with their values are listed below:
 
 
 Question 1:
-
+-open WireFrame using sudo wireframe (and select the Wireless option)
+-open a terminal and run the following commands:
+  -ping 10.196.15.74
+  -ssh sahilshah@mars.cse.iitb.ac.in
+-filter using the command: arp || icmp || ssh
+-stop wireframe and use File->Export selected packets
 
 Question 2:
 a) The lowest layer that handles this packet is the link(ethernet) layer and this passes it to the Address Resolution Protocol (ARP). This is determined by the value of the Type field (0x0806). It is then passed to Internet Protocol version 4 (IPv4) using the protocol field which has value (0x0800).
@@ -82,3 +90,25 @@ b) The source port is 22
 
 c) The SSH server has IP addres: 10.129.3.5
    We deduced this using the fact that the SSH server listens on port 22 and the source port is 22 and hence the source address is the IP of the SSH server.
+
+
+
+============================================ EXERCISE 3 ======================================================
+
+
+
+Question 1:
+X is the time stamp (as per the machine time) of the time at which the last packet was received and the download ended.
+Y is the throughput (data-rate or speed) of the download. It is calculated using the total size of the download (obtained by adding the size of all the packets involved in the download) and dividing it by the total time taken (which is the difference between the timestamp of the first and last packets involved in the download).
+Z is the total size of the download in bits (and is calculated by summing the sizes of all the individual packets that make up the download).
+
+
+Question 2:
+The download speed is 9.86 Mbps. We are connected to a WiFi link with a speed of 150 Mbps.
+
+
+Question 3:
+<no answer>
+
+Question 4:
+Looking at the time of the different packets, we observe that the difference in the time stamps of the ICMP packets "request" and "reply" is equal to the time that is displayed by the "ping" command.
