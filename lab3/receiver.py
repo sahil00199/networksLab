@@ -1,10 +1,6 @@
 from sendSignal import makeSignal
 from appendCRC import appendCRC
 
-def senderOriginal(s):
-	s = appendCRC(s)
-	sendSignal(s)
-
 def sendAck(b):
 	if b:
 		makeSignal("1")
@@ -28,9 +24,3 @@ def decodeAtReceiver(s):
 		print("Error detected in message")
 		print
 		sendAck(False)
-
-def senderResponse(m, s):
-	if s == "0":
-		makeSignal(m)
-	else:
-		return 
