@@ -22,6 +22,3 @@ def makeSignal(s):
 	rect.setFill("blue")
 	sleep(bitTime)
 	win.close()
-
-if __name__ == "__main__":
-	makeSignal("1010010010001")
