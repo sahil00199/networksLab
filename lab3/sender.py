@@ -7,7 +7,7 @@ def senderOriginal(s):
 	global message
 	message = s
 	s = appendCRC(s)
-	sendSignal(s)
+	makeSignal(s)
 
 def senderResponse(s):
 	global message

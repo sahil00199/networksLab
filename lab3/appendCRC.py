@@ -12,6 +12,6 @@ def calcCRC(arg1, arg2):
 		arg1 = ''.join(ll)
 	return calcCRC(arg1[1:], arg2)
 
-def appendCRC(arg, argcrc):
-	return arg + calcCRC(arg+('0'*(len(argcrc) - 1)), argcrc)
+def appendCRC(arg):
+	return arg + calcCRC(arg+('0'*(len(crc) - 1)), crc)
 
