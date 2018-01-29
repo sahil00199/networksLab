@@ -9,6 +9,10 @@ def senderOriginal(s):
 	s = appendCRC(s)
 	makeSignal(s)
 
+def sendIncorrect(correct, incorrect):
+	crc = appendCRC(correct)[-2:]
+	makeSignal(incorrect + crc)
+
 def senderResponse(s):
 	global message
 	if s == "0":

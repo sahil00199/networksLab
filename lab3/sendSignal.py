@@ -18,6 +18,7 @@ def makeSignal(s):
 		else:
 			rect.setFill("red")
 		sleep(bitTime)
+	rect.setFill("yellow")
 	sleep(interimTime)
 	rect.setFill("blue")
 	sleep(bitTime)
