@@ -1,0 +1,28 @@
+
+Topics :
+
+1. Details of design
+2. phy layer encoding
+3. link layer framing
+4. link layer reliability
+6. code base
+
+DETAILS OF DESIGN AND HANDLING OF VARIOUS ASPECTS:
+
+PHY LAYER ENCODING :- We are transmitting the bits using color signals. We will write a python script which will take the message as input and the corresponding positions of error. Then we will use the appendCRC function in 'appendCRC.py' to append the CRC at the end of message. Then this CRC appended message will be passed as argument to makeSignal function of the makeSignal.py script which will flash the corresponding signals according to the following scheme:
+
+	color1 : Red          (for 1 second)     : bit 0
+	color2 : Green        (for 1 second)     : bit 1
+	color3 : Yellow       (for 0.1 seconds)  : intermediate for marking end of bit signal
+	color4 : Light Blue   (for 1 second)     : for marking end of packet
+
+LINK LAYER FRAMING :- We are marking the end of a packet by using the color4.
+
+RECEIVING SIGNALS :- We will be manually receiving the signals, i.e., one receiver will be sitting at the receiver computer to decode the light signals.
+
+
+LINK LAYER RELIABILITY :- After receiving code, we will be checking the CRC using the function 'xyz.py' and matching it with the last two bits if it does not match then we will send a 0 otherwise we will send a 1 using the same signal codes as described under PHY LAYER ENCODING (including light blue once we are done).
+
+code base :- python codes are submitted herewith
+
+
