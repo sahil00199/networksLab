@@ -16,7 +16,7 @@ def decodeAtReceiver(s):
 	if appendCRC(message)[-2:] == crc:
 		print ("Message has been receieved correctly!")
 		print 
-		print ("Message is " + Message)
+		print ("Message is " + message)
 		print
 		sendAck(True)
 		return
