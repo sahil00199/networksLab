@@ -19,8 +19,17 @@ def decodeAtReceiver(s):
 		print ("Message is " + message)
 		print
 		sendAck(True)
-		return
+		return True
 	else:
 		print("Error detected in message")
 		print
 		sendAck(False)
+		return False
+
+
+if __name__=="__main__":
+	while True:
+		st = raw_input("Please input the receieved data: ")
+		if decodeAtReceiver(st):
+			break
+		
