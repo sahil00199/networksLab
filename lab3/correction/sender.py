@@ -1,5 +1,5 @@
 from sendSignal import makeSignal
-from appendCRC import appendCRC
+from encode import encode
 
 message=""
 
@@ -9,14 +9,10 @@ def senderOriginal(s):
 	s = appendCRC(s)
 	makeSignal(s)
 
-def sendIncorrect(correct, incorrect):
-	crc = appendCRC(correct)[-2:]
-	makeSignal(incorrect + crc)
-
 def senderResponse(s):
 	global message
 	if s == "0":
-		makeSignal(appendCRC(message))
+		makeSignal(message + encode(message))
 		return False
 	else:
 		return True
@@ -36,9 +32,9 @@ if __name__== "__main__":
 	errors = raw_input("Please enter the indices of the errors: ").split()
 	for i in range(len(errors)):
 		errors[i] = int(errors[i])
-	crc = appendCRC(message)[-2:]
+	suffix = encode(message)
 	errorMes = makeError(message, errors)
-	makeSignal(errorMes+crc)
+	makeSignal(errorMes+suffix)
 	while True:
 		response = raw_input("Please give us the message received from the receiver: ")
 		if senderResponse(response):
