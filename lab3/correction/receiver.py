@@ -1,5 +1,5 @@
 from sendSignal import makeSignal
-from appendCRC import appendCRC
+from decode import decode
 
 def sendAck(b):
 	if b:
@@ -8,15 +8,14 @@ def sendAck(b):
 		makeSignal("0")
 
 def decodeAtReceiver(s):
-	if (len(s)<3):
+	if (len(s)<16):
 		print("Incorrect input sequence")
 		return
-	crc = s[-2:]
-	message = s[0:-2]
-	if appendCRC(message)[-2:] == crc:
+	decoded = decode(s)
+	if decoded != False:
 		print ("Message has been receieved correctly!")
 		print 
-		print ("Message is " + message)
+		print ("Message is " + decoded)
 		print
 		sendAck(True)
 		return True
