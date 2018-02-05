@@ -77,7 +77,7 @@ def decode(s):
 		return False
 	if numberDiff == 4: # 2 bit error with a common modulo
 		lostMod = 0
-		print('-------------------')
+	#	print('-------------------')
 		if difference[0] >= 4:
 			lostMod = 4
 			index1 = solver2([difference[0] - 4, difference[2] - 9], 5, 7)
