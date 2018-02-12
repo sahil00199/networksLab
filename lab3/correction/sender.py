@@ -28,6 +28,20 @@ def makeError(s, errors):
 
 
 if __name__== "__main__":
+	#First Message
+	message = raw_input("Please enter the message that you want to transmit: ")
+	errors = raw_input("Please enter the indices of the errors: ").split()
+	for i in range(len(errors)):
+		errors[i] = int(errors[i])
+	suffix = encode(message)
+	errorMes = makeError(message, errors)
+	makeSignal(errorMes+suffix)
+	while True:
+		response = raw_input("Please give us the message received from the receiver: ")
+		if senderResponse(response):
+			break
+
+	#Second Message
 	message = raw_input("Please enter the message that you want to transmit: ")
 	errors = raw_input("Please enter the indices of the errors: ").split()
 	for i in range(len(errors)):

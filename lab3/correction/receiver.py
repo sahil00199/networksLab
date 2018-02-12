@@ -27,10 +27,17 @@ def decodeAtReceiver(s):
 
 
 if __name__=="__main__":
+	#first time 
 	while True:
 		st = raw_input("Please input the receieved data: ")
 		if st == "!" :
 			sendAck(False)
 		elif decodeAtReceiver(st):
 			break
-		
+	#second time
+	while True:
+		st = raw_input("Please input the receieved data: ")
+		if st == "!" :
+			sendAck(False)
+		elif decodeAtReceiver(st):
+			break
