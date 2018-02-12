@@ -1,10 +1,9 @@
 from graphics import *
 from time import sleep
 
-bitTime = 1
 interimTime = 0.1
 
-def makeSignal(s):
+def makeSignal(s, bitTime):
 	win = GraphWin("Communication", 1300, 700)
 	rect = Rectangle(Point(0, 0), Point(1300, 700))
 	rect.draw(win)

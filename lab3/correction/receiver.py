@@ -1,11 +1,13 @@
 from sendSignal import makeSignal
 from decode import decode
 
+bitTime = 1
+
 def sendAck(b):
 	if b:
-		makeSignal("1")
+		makeSignal("1", bitTime)
 	else:
-		makeSignal("0")
+		makeSignal("0", bitTime)
 
 def decodeAtReceiver(s):
 	if (len(s)<16):
