@@ -20,7 +20,7 @@ def decodeAtReceiver(s):
 		sendAck(True)
 		return True
 	else:
-		print("Error detected in message")
+		print("Unrecoverable error detected in message")
 		print
 		sendAck(False)
 		return False
@@ -29,6 +29,8 @@ def decodeAtReceiver(s):
 if __name__=="__main__":
 	while True:
 		st = raw_input("Please input the receieved data: ")
-		if decodeAtReceiver(st):
+		if st == "!" :
+			sendAck(False)
+		elif decodeAtReceiver(st):
 			break
 		
