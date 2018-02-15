@@ -19,6 +19,10 @@ def decodeAtReceiver(s):
 		print 
 		print ("Message is " + decoded)
 		print
+                print ("The follwing are the errors:")
+                for i in range(len(decoded)):
+                    if decoded[i] != s[i]:
+                        print(i)
 		sendAck(True)
 		return True
 	else:
