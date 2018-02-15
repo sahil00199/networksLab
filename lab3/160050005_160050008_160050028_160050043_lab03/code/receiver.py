@@ -34,6 +34,8 @@ if __name__=="__main__":
 		st = raw_input("Please input the receieved data: ")
 		if st == "!" :
 			sendAck(False)
+		elif st == ">":
+			sendAck(True)
 		elif decodeAtReceiver(st):
 			break
 	#second time
@@ -41,5 +43,7 @@ if __name__=="__main__":
 		st = raw_input("Please input the receieved data: ")
 		if st == "!" :
 			sendAck(False)
+		elif st == ">":
+			sendAck(True)
 		elif decodeAtReceiver(st):
 			break
